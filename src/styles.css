@@ -7,6 +7,7 @@
   --color-surface: #ffffff;
   --color-sidebar: #eaf0f6;
   --color-card: #ffffff;
+  --color-card-active: #d7e1ea;
 
   --color-primary: #3271b0;
   --color-primary-hover: #4b86c4;
@@ -44,6 +45,7 @@
   --color-surface: #0b1b2d;
   --color-sidebar: #13202c;
   --color-card: #10232f;
+  --color-card-active: #081421;
 
   --color-foreground: #e6edf3;
   --color-foreground-secondary: #93a4b7;

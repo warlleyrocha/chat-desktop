@@ -1,7 +1,8 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, HostListener, computed, inject } from '@angular/core';
 import { LucideCheck, LucideCheckCheck } from '@lucide/angular';
 
 import { ChatService } from '../../../core/services/chat.service';
+import { MenuService } from '../../../core/services/menu.service';
 import { MOCK_ACCOUNT } from '../../menu/mocks/account.mock';
 
 @Component({
@@ -12,6 +13,7 @@ import { MOCK_ACCOUNT } from '../../menu/mocks/account.mock';
 })
 export class ChatWindowComponent {
   protected readonly chat = inject(ChatService);
+  private readonly menu = inject(MenuService);
   protected readonly userInitial = MOCK_ACCOUNT.name.charAt(0);
 
   protected readonly groupedMessages = computed(() => {
@@ -30,5 +32,12 @@ export class ChatWindowComponent {
   protected send(input: HTMLInputElement): void {
     this.chat.sendMessage(input.value);
     input.value = '';
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.menu.isOpen()) return;
+    if (!this.chat.activeConversation()) return;
+    this.chat.clearActive();
   }
 }

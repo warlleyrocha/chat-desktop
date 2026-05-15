@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 
 import { MenuService } from '../../../core/services/menu.service';
 import { ThemeService } from '../../../core/services/theme.service';
@@ -18,5 +18,12 @@ export class SideMenuComponent {
 
   protected toggleAccount(): void {
     this.accountExpanded.update((value) => !value);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.menu.isOpen()) {
+      this.menu.close();
+    }
   }
 }
