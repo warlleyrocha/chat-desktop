@@ -1,10 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
+import { LucideCheck, LucideCheckCheck } from '@lucide/angular';
 
 import { ChatService } from '../../../core/services/chat.service';
 import { MOCK_ACCOUNT } from '../../menu/mocks/account.mock';
 
 @Component({
   selector: 'app-chat-window',
+  imports: [LucideCheck, LucideCheckCheck],
   templateUrl: './chat-window.component.html',
   styleUrl: './chat-window.component.css',
 })

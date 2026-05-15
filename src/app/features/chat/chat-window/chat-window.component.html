@@ -6,12 +6,6 @@
     <header
       class="flex items-center gap-3 border-b border-border bg-sidebar px-5 py-3 backdrop-blur"
     >
-      <div
-        class="grid size-10 shrink-0 place-items-center rounded-full text-[13px] font-semibold tracking-wide text-white select-none"
-        [class]="conversation.avatarColor ?? 'bg-blue-600'"
-      >
-        {{ conversation.name.charAt(0) }}
-      </div>
       <div class="flex min-w-0 flex-col leading-tight">
         <span class="truncate text-[15px] font-semibold text-foreground">{{
           conversation.name
@@ -42,19 +36,7 @@
                   <span class="text-[11px] font-medium text-meta-out tabular-nums">{{
                     message.time
                   }}</span>
-                  <svg
-                    class="size-4 text-meta-out"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M18 6 7 17l-5-5"></path>
-                    <path d="m22 10-7.5 7.5L13 16"></path>
-                  </svg>
+                  <svg lucideCheckCheck class="size-4 text-meta-out" aria-hidden="true"></svg>
                 </div>
               </div>
             </div>
@@ -82,18 +64,7 @@
                   <span class="text-[11px] font-medium text-meta-in tabular-nums">{{
                     message.time
                   }}</span>
-                  <svg
-                    class="size-3.5 text-tick"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <polyline points="2.5 8.5 6 12 13.5 4.5"></polyline>
-                  </svg>
+                  <svg lucideCheck class="size-3.5 text-tick" aria-hidden="true"></svg>
                 </div>
               </div>
             </div>

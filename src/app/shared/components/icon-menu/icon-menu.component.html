@@ -1,14 +1,10 @@
 <button
-  class="menu group grid place-items-center"
+  class="menu group grid cursor-pointer place-items-center"
   type="button"
   [class.is-open]="menu.isOpen()"
   [attr.aria-expanded]="menu.isOpen()"
   aria-label="Abrir menu"
   (click)="menu.open()"
 >
-  <span class="menu-lines" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
+  <svg lucideMenu class="size-[1.35rem]" aria-hidden="true"></svg>
 </button>
