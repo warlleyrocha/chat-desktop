@@ -1,3 +1,5 @@
+import { version } from '@/../package.json';
+
 export interface Account {
   name: string;
   initials: string;
@@ -7,5 +9,5 @@ export interface Account {
 export const MOCK_ACCOUNT: Account = {
   name: 'Warley Rocha',
   initials: 'WR',
-  appVersion: '6.8.2',
+  appVersion: version,
 };

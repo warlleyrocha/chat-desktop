@@ -1,4 +1,4 @@
-import { Component, HostListener, computed, inject } from '@angular/core';
+import { Component, HostListener, computed, inject, signal } from '@angular/core';
 import { LucideCheck, LucideCheckCheck } from '@lucide/angular';
 
 import { ChatService } from '../../../core/services/chat.service';
@@ -15,6 +15,8 @@ export class ChatWindowComponent {
   protected readonly chat = inject(ChatService);
   private readonly menu = inject(MenuService);
   protected readonly userInitial = MOCK_ACCOUNT.name.charAt(0);
+
+  readonly backgroundUrl = signal('url(/default.jpg)');
 
   protected readonly groupedMessages = computed(() => {
     const messages = this.chat.activeMessages();

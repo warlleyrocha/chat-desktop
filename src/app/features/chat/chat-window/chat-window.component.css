@@ -4,6 +4,12 @@
   min-height: 0;
 }
 
+.messages-area {
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+}
+
 .tail-in::before {
   content: '';
   position: absolute;
