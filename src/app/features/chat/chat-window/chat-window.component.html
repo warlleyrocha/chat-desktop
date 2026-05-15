@@ -1,0 +1,101 @@
+@if (chat.activeConversation(); as conversation) {
+  <section class="grid h-full min-h-0 grid-rows-[auto_1fr_auto] bg-canvas" aria-label="Conversa ativa">
+    <header class="flex items-center gap-3 border-b border-border bg-sidebar px-5 py-3 backdrop-blur">
+      <div
+        class="grid size-10 shrink-0 place-items-center rounded-full text-[13px] font-semibold tracking-wide text-white select-none"
+        [class]="conversation.avatarColor ?? 'bg-blue-600'"
+      >
+        {{ conversation.name.charAt(0) }}
+      </div>
+      <div class="flex min-w-0 flex-col leading-tight">
+        <span class="truncate text-[15px] font-semibold text-foreground">{{ conversation.name }}</span>
+        <span class="text-xs text-meta-in">online</span>
+      </div>
+    </header>
+
+    <div class="scrollbar-none flex flex-col gap-1.5 overflow-y-auto px-5 py-6">
+      <div class="my-2 flex justify-center">
+        <span class="rounded-full bg-foreground/5 px-3 py-1 text-[11px] font-medium tracking-wide text-meta-in uppercase">hoje</span>
+      </div>
+
+      @for (message of groupedMessages(); track message.id) {
+        @if (message.mine) {
+          <div class="flex items-end justify-end gap-2" [class.mt-2]="message.isFirstInGroup">
+            <div
+              class="relative max-w-[68%] rounded-2xl bg-bubble-out px-3.5 py-2 text-white shadow-[0_1px_1px_rgba(0,0,0,0.25)]"
+              [class.tail-out]="message.isLastInGroup"
+              [class.rounded-br-md]="message.isLastInGroup"
+            >
+              <div class="flex items-end gap-2">
+                <p class="text-[15px] leading-snug">{{ message.text }}</p>
+                <div class="ml-auto flex shrink-0 translate-y-px items-center gap-1">
+                  <span class="text-[11px] font-medium text-meta-out tabular-nums">{{ message.time }}</span>
+                  <svg class="size-4 text-meta-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 6 7 17l-5-5"></path>
+                    <path d="m22 10-7.5 7.5L13 16"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        } @else {
+          <div class="flex items-end gap-2" [class.mt-2]="message.isFirstInGroup">
+            @if (message.isFirstInGroup) {
+              <div
+                class="grid size-9 shrink-0 place-items-center rounded-full text-xs font-semibold text-white select-none"
+                [class]="conversation.avatarColor ?? 'bg-blue-600'"
+              >
+                {{ conversation.name.charAt(0) }}
+              </div>
+            } @else {
+              <div class="size-9 shrink-0"></div>
+            }
+            <div
+              class="relative max-w-[68%] rounded-2xl bg-bubble-in px-3.5 py-2 text-foreground shadow-[0_1px_1px_rgba(0,0,0,0.25)]"
+              [class.tail-in]="message.isLastInGroup"
+              [class.rounded-bl-md]="message.isLastInGroup"
+            >
+              <div class="flex items-end gap-2">
+                <p class="text-[15px] leading-snug">{{ message.text }}</p>
+                <div class="ml-auto flex shrink-0 translate-y-px items-center gap-1">
+                  <span class="text-[11px] font-medium text-meta-in tabular-nums">{{ message.time }}</span>
+                  <svg class="size-3.5 text-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="2.5 8.5 6 12 13.5 4.5"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      } @empty {
+        <p class="self-center text-meta-in">Nenhuma mensagem nesta conversa ainda.</p>
+      }
+    </div>
+
+    <form
+      class="flex items-center gap-3 border-t border-border bg-sidebar px-5 py-3"
+      (ngSubmit)="send(messageInput)"
+    >
+      <input
+        #messageInput
+        class="min-w-0 flex-1 rounded-full border border-border bg-input px-4 py-2.5 text-[14px] text-foreground placeholder:text-meta-in focus:outline-none"
+        type="text"
+        placeholder="Mensagem"
+        aria-label="Mensagem"
+      />
+      <button class="grid size-9 cursor-pointer place-items-center rounded-full border-0 bg-bubble-out text-white shadow-sm hover:brightness-110" type="submit" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2 11 13"></path>
+          <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+        </svg>
+      </button>
+    </form>
+  </section>
+} @else {
+  <section class="grid h-full place-items-center bg-canvas px-6 text-center text-meta-in" aria-label="Nenhuma conversa selecionada">
+    <div>
+      <p class="m-0 text-lg font-bold text-foreground">Selecione uma conversa</p>
+      <p class="mt-1 mb-0">Escolha um contato na lista para comecar a conversar.</p>
+    </div>
+  </section>
+}

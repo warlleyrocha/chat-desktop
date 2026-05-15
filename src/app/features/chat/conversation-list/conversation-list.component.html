@@ -1,0 +1,52 @@
+<aside class="flex h-full min-h-0 flex-col gap-6 border-r border-border bg-sidebar p-6" aria-label="Conversas">
+  <div class="flex items-center gap-3">
+    <app-icon-menu />
+    <label class="min-w-0 flex-1 text-sm font-bold text-foreground-secondary">
+      <input
+        class="w-full rounded-full border border-border bg-input px-4 py-3.5 font-normal text-foreground"
+        type="search"
+        placeholder="Buscar"
+      />
+    </label>
+  </div>
+
+  <section class="scrollbar-none flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto">
+    @for (conversation of chat.conversations(); track conversation.id) {
+      <article
+        class="relative flex cursor-pointer items-center gap-3.5 rounded-[0.875rem] border p-3.5 transition-colors"
+        [class]="conversation.id === chat.activeConversationId()
+          ? 'border-primary bg-primary/10'
+          : 'border-transparent hover:bg-card'"
+        (click)="chat.selectConversation(conversation.id)"
+      >
+        <div
+          class="grid h-11 w-11 place-items-center rounded-full font-normal text-white"
+          [class]="conversation.avatarColor ?? 'bg-blue-600'"
+        >
+          {{ conversation.name.charAt(0) }}
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center justify-between gap-3">
+            <strong>{{ conversation.name }}</strong>
+            <time class="text-xs text-foreground-secondary">{{ conversation.time }}</time>
+          </div>
+          <p class="mt-1 mb-0 truncate text-foreground-secondary">{{ conversation.lastMessage }}</p>
+        </div>
+        @if (conversation.unread) {
+          <div class="pt-5">
+            <span class="grid h-6 min-w-6 place-items-center rounded-full bg-success text-xs font-extrabold text-white">
+              {{ conversation.unread }}
+            </span>
+          </div>
+        }
+      </article>
+    } @empty {
+      <div class="grid flex-1 place-items-center px-4 text-center text-foreground-secondary">
+        <div>
+          <p class="m-0 font-bold text-foreground">Nenhuma conversa ainda</p>
+          <p class="mt-1 mb-0 text-sm">Suas conversas aparecerao aqui.</p>
+        </div>
+      </div>
+    }
+  </section>
+</aside>

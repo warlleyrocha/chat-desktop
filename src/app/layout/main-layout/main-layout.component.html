@@ -1,0 +1,18 @@
+<main
+  class="relative grid h-screen overflow-hidden bg-background text-foreground"
+  [style.gridTemplateColumns]="leftWidth() + 'px 1fr'"
+>
+  <app-conversation-list />
+  <app-chat-window />
+
+  <hr
+    class="resize-handle absolute top-0 bottom-0 z-10"
+    [style.left.px]="leftWidth() - 3"
+    appResizablePanel
+    (widthChange)="leftWidth.set($event)"
+    aria-orientation="vertical"
+    aria-label="Redimensionar lista de conversas"
+  />
+</main>
+
+<app-side-menu />
