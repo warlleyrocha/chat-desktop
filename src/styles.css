@@ -1,3 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-sidebar: #eaf0f6;
+  --color-card: #ffffff;
+
+  --color-primary: #3271b0;
+  --color-primary-hover: #4b86c4;
+
+  --color-foreground: #17212b;
+  --color-foreground-secondary: #5b6b7c;
+  --color-foreground-muted: #7d8b99;
+
+  --color-border: #d7e1ea;
+  --color-input: #ffffff;
+
+  --color-success: #3ba55d;
+  --color-warning: #e0a458;
+  --color-danger: #d9534f;
+
+  --color-canvas: #eef3f8;
+  --color-bubble-in: #ffffff;
+  --color-bubble-out: #3271b0;
+  --color-meta-in: #7d8b99;
+  --color-meta-out: #cfe0f1;
+  --color-tick: #3271b0;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --color-background: #071426;
+  --color-surface: #0b1b2d;
+  --color-sidebar: #13202c;
+  --color-card: #10232f;
+
+  --color-foreground: #e6edf3;
+  --color-foreground-secondary: #93a4b7;
+  --color-foreground-muted: #6e7c8c;
+
+  --color-border: #243244;
+  --color-input: #1b2a3a;
+
+  --color-canvas: oklch(0.21 0.014 250);
+  --color-bubble-in: oklch(0.3 0.018 250);
+  --color-bubble-out: oklch(0.46 0.085 235);
+  --color-meta-in: oklch(0.7 0.045 230);
+  --color-meta-out: oklch(0.86 0.045 220);
+  --color-tick: oklch(0.78 0.11 220);
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+}

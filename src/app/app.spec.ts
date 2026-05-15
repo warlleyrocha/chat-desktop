@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { App } from './app.component';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -14,10 +14,13 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the chat layout', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, chat-desktop');
+    expect(compiled.querySelector('app-main-layout')).toBeTruthy();
+    expect(compiled.querySelector('app-conversation-list')).toBeTruthy();
+    expect(compiled.querySelector('app-chat-window')).toBeTruthy();
+    expect(compiled.textContent).toContain('Equipe Produto');
   });
 });
