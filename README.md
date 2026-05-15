@@ -142,22 +142,22 @@ src/
 
 ### Componentes principais
 
-| Componente | Descrição |
-| ---------- | --------- |
-| `MainLayoutComponent` | Composição da tela principal com lista, chat e resize handle. |
-| `ConversationListComponent` | Renderiza conversas, busca visual e seleção de conversa ativa. |
-| `ChatWindowComponent` | Renderiza mensagens, agrupamentos, estado vazio e envio local. |
-| `SideMenuComponent` | Menu lateral com perfil, submenu, navegação visual e toggle de tema. |
-| `IconMenu` | Botão visual de abertura do menu lateral. |
-| `ResizablePanelDirective` | Controla o redimensionamento horizontal do painel esquerdo. |
+| Componente                  | Descrição                                                            |
+| --------------------------- | -------------------------------------------------------------------- |
+| `MainLayoutComponent`       | Composição da tela principal com lista, chat e resize handle.        |
+| `ConversationListComponent` | Renderiza conversas, busca visual e seleção de conversa ativa.       |
+| `ChatWindowComponent`       | Renderiza mensagens, agrupamentos, estado vazio e envio local.       |
+| `SideMenuComponent`         | Menu lateral com perfil, submenu, navegação visual e toggle de tema. |
+| `IconMenu`                  | Botão visual de abertura do menu lateral.                            |
+| `ResizablePanelDirective`   | Controla o redimensionamento horizontal do painel esquerdo.          |
 
 ### Serviços
 
-| Serviço | Responsabilidade |
-| ------- | ---------------- |
-| `ChatService` | Guarda conversas, mensagens, conversa ativa e envio local de mensagens. |
-| `MenuService` | Controla abertura, fechamento e alternância do menu lateral. |
-| `ThemeService` | Controla o tema atual, aplica a classe `dark` e persiste a escolha. |
+| Serviço        | Responsabilidade                                                        |
+| -------------- | ----------------------------------------------------------------------- |
+| `ChatService`  | Guarda conversas, mensagens, conversa ativa e envio local de mensagens. |
+| `MenuService`  | Controla abertura, fechamento e alternância do menu lateral.            |
+| `ThemeService` | Controla o tema atual, aplica a classe `dark` e persiste a escolha.     |
 
 ---
 
@@ -180,13 +180,13 @@ main.ts
 
 ### Estado local
 
-| Ação | Resultado |
-| ---- | --------- |
-| Selecionar conversa | Atualiza `activeConversationId` e zera `unread`. |
-| Enviar mensagem | Adiciona mensagem local e atualiza última mensagem da conversa. |
-| Abrir menu | Define `MenuService.isOpen` como `true`. |
-| Alternar tema | Atualiza signal, classe `dark` e `localStorage`. |
-| Redimensionar painel | Atualiza a largura do painel esquerdo no layout principal. |
+| Ação                 | Resultado                                                       |
+| -------------------- | --------------------------------------------------------------- |
+| Selecionar conversa  | Atualiza `activeConversationId` e zera `unread`.                |
+| Enviar mensagem      | Adiciona mensagem local e atualiza última mensagem da conversa. |
+| Abrir menu           | Define `MenuService.isOpen` como `true`.                        |
+| Alternar tema        | Atualiza signal, classe `dark` e `localStorage`.                |
+| Redimensionar painel | Atualiza a largura do painel esquerdo no layout principal.      |
 
 ---
 
@@ -248,13 +248,13 @@ npm run test
 
 ### Scripts disponíveis
 
-| Script | O que faz |
-| ------ | --------- |
-| `npm run start` | Inicia o servidor Angular em modo desenvolvimento. |
-| `npm run build` | Gera o build de produção. |
+| Script          | O que faz                                                   |
+| --------------- | ----------------------------------------------------------- |
+| `npm run start` | Inicia o servidor Angular em modo desenvolvimento.          |
+| `npm run build` | Gera o build de produção.                                   |
 | `npm run watch` | Executa build contínuo com configuração de desenvolvimento. |
-| `npm run test` | Executa testes unitários com Vitest. |
-| `npm run ng` | Expõe a CLI do Angular pelo npm. |
+| `npm run test`  | Executa testes unitários com Vitest.                        |
+| `npm run ng`    | Expõe a CLI do Angular pelo npm.                            |
 
 ---
 
@@ -262,9 +262,9 @@ npm run test
 
 Os protótipos HTML usados como referência visual ficam em `docs/`.
 
-| Documento | Uso |
-| --------- | --- |
-| `docs/menu-design.html` | Referência visual do menu lateral, perfil, itens e toggle. |
+| Documento                | Uso                                                          |
+| ------------------------ | ------------------------------------------------------------ |
+| `docs/menu-design.html`  | Referência visual do menu lateral, perfil, itens e toggle.   |
 | `docs/chat-bubbles.html` | Referência visual das bolhas de mensagem, header e composer. |
 
 ---
@@ -285,16 +285,16 @@ Os protótipos HTML usados como referência visual ficam em `docs/`.
 
 ## Tecnologias utilizadas :books:
 
-| Tecnologia | Uso |
-| ---------- | --- |
-| [Angular](https://angular.dev/) | Framework da aplicação web. |
-| [TypeScript](https://www.typescriptlang.org/) | Tipagem estática. |
-| [Tailwind CSS](https://tailwindcss.com/) | Estilização utilitária e tokens globais. |
-| [RxJS](https://rxjs.dev/) | Dependência reativa do ecossistema Angular. |
-| [Vitest](https://vitest.dev/) | Execução de testes unitários. |
-| [jsdom](https://github.com/jsdom/jsdom) | Ambiente DOM para testes. |
-| [Prettier](https://prettier.io/) | Formatação de código. |
-| [Angular CLI](https://angular.dev/tools/cli) | Build, serve e automação do projeto. |
+| Tecnologia                                    | Uso                                         |
+| --------------------------------------------- | ------------------------------------------- |
+| [Angular](https://angular.dev/)               | Framework da aplicação web.                 |
+| [TypeScript](https://www.typescriptlang.org/) | Tipagem estática.                           |
+| [Tailwind CSS](https://tailwindcss.com/)      | Estilização utilitária e tokens globais.    |
+| [RxJS](https://rxjs.dev/)                     | Dependência reativa do ecossistema Angular. |
+| [Vitest](https://vitest.dev/)                 | Execução de testes unitários.               |
+| [jsdom](https://github.com/jsdom/jsdom)       | Ambiente DOM para testes.                   |
+| [Prettier](https://prettier.io/)              | Formatação de código.                       |
+| [Angular CLI](https://angular.dev/tools/cli)  | Build, serve e automação do projeto.        |
 
 ---
 

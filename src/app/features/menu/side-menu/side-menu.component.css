@@ -15,7 +15,11 @@
 .menu {
   width: 269px;
   height: 100%;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;

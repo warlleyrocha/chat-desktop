@@ -9,9 +9,7 @@ import { MOCK_MESSAGES } from '../../features/chat/mocks/messages.mock';
 export class ChatService {
   private readonly _conversations = signal<Conversation[]>(MOCK_CONVERSATIONS);
   private readonly _messages = signal<Message[]>(MOCK_MESSAGES);
-  private readonly _activeConversationId = signal<string | null>(
-    MOCK_CONVERSATIONS[0]?.id ?? null,
-  );
+  private readonly _activeConversationId = signal<string | null>(MOCK_CONVERSATIONS[0]?.id ?? null);
 
   readonly conversations = this._conversations.asReadonly();
   readonly activeConversationId = this._activeConversationId.asReadonly();
@@ -33,9 +31,7 @@ export class ChatService {
 
   selectConversation(id: string): void {
     this._activeConversationId.set(id);
-    this._conversations.update((list) =>
-      list.map((c) => (c.id === id ? { ...c, unread: 0 } : c)),
-    );
+    this._conversations.update((list) => list.map((c) => (c.id === id ? { ...c, unread: 0 } : c)));
   }
 
   sendMessage(text: string): void {
@@ -61,9 +57,7 @@ export class ChatService {
 
     this._messages.update((list) => [...list, message]);
     this._conversations.update((list) =>
-      list.map((c) =>
-        c.id === conversationId ? { ...c, lastMessage: trimmed, time } : c,
-      ),
+      list.map((c) => (c.id === conversationId ? { ...c, lastMessage: trimmed, time } : c)),
     );
   }
 }

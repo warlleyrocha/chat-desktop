@@ -1,9 +1,4 @@
-import {
-  EnvironmentProviders,
-  Provider,
-  inject,
-  provideAppInitializer,
-} from '@angular/core';
+import { EnvironmentProviders, Provider, inject, provideAppInitializer } from '@angular/core';
 
 import { ThemeService } from './services/theme.service';
 
