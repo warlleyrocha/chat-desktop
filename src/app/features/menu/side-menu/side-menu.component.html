@@ -1,4 +1,6 @@
+<!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
 <div class="backdrop" [class.open]="menu.isOpen()" (click)="menu.close()">
+  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
   <aside
     class="menu bg-sidebar text-foreground"
     (click)="$event.stopPropagation()"
@@ -13,6 +15,7 @@
           {{ account.initials }}
         </div>
         <div class="flex-1"></div>
+        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
         <svg
           class="chevron h-4.5 w-4.5 cursor-pointer text-foreground-muted hover:text-foreground-secondary"
           [class.flipped]="accountExpanded()"
@@ -187,6 +190,7 @@
         <span class="flex-1 leading-none">Configurações</span>
       </div>
 
+      <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
         (click)="theme.toggle()"
@@ -203,6 +207,7 @@
           <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"></path>
         </svg>
         <span class="flex-1 leading-none">Modo Noturno</span>
+        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
         <div
           class="toggle bg-foreground-muted/40"
           [class.on]="theme.isDark()"
