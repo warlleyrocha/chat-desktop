@@ -1,9 +1,6 @@
-<!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-<div class="backdrop" [class.open]="menu.isOpen()" (click)="menu.close()">
-  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+<div class="backdrop" [class.open]="menu.isOpen()">
   <aside
     class="menu bg-sidebar text-foreground"
-    (click)="$event.stopPropagation()"
     aria-label="Menu da conta"
   >
     <div class="profile px-4 pt-5 pb-4">
@@ -15,19 +12,16 @@
           {{ account.initials }}
         </div>
         <div class="flex-1"></div>
-        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-        <svg
-          class="chevron h-4.5 w-4.5 cursor-pointer text-foreground-muted hover:text-foreground-secondary"
+        <button
+          type="button"
+          class="chevron h-4.5 w-4.5 cursor-pointer border-0 bg-transparent p-0 text-foreground-muted hover:text-foreground-secondary"
           [class.flipped]="accountExpanded()"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          aria-label="Expandir conta"
+          [attr.aria-expanded]="accountExpanded()"
           (click)="toggleAccount()"
         >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+          <svg lucideChevronDown class="h-full w-full" aria-hidden="true"></svg>
+        </button>
       </div>
       <div class="mt-3.5 text-[15px] leading-tight font-semibold">{{ account.name }}</div>
     </div>
@@ -56,19 +50,7 @@
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="9"></circle>
-          <circle cx="12" cy="10" r="3"></circle>
-          <path d="M6.5 19c1-2.4 3.2-4 5.5-4s4.5 1.6 5.5 4"></path>
-        </svg>
+        <svg lucideCircleUser class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Meu Perfil</span>
       </div>
     </div>
@@ -79,143 +61,63 @@
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="9" cy="9" r="3"></circle>
-          <path d="M3 19c1-3 3.2-4.5 6-4.5S14 16 15 19"></path>
-          <circle cx="17" cy="8" r="2.5"></circle>
-          <path d="M15 13.2c.6-.2 1.3-.3 2-.3 2 0 3.5 1 4 3"></path>
-        </svg>
+        <svg lucideUsers class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Novo Grupo</span>
       </div>
 
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M4 10v4l11 4V6L4 10z"></path>
-          <path d="M4 10H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1"></path>
-          <path d="M18 8c1.5 1 1.5 7 0 8"></path>
-          <path d="M9 18l1 3h2l-1-3"></path>
-        </svg>
+        <svg lucideMegaphone class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Novo Canal</span>
       </div>
 
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="9" r="3.2"></circle>
-          <path d="M5.5 19c1-3 3.6-4.5 6.5-4.5s5.5 1.5 6.5 4.5"></path>
-        </svg>
+        <svg lucideUser class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Contatos</span>
       </div>
 
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M5 4.5c0-.8.7-1.5 1.5-1.5h2L10 7l-2 1.5c1 2.5 3 4.5 5.5 5.5L15 12l3.5 1.5v2c0 .8-.7 1.5-1.5 1.5C10.6 17 5 11.4 5 4.5z"
-          ></path>
-        </svg>
+        <svg lucidePhone class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Chamadas</span>
       </div>
 
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M6 3.5h12v17l-6-4-6 4v-17z"></path>
-        </svg>
+        <svg lucideBookmark class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Mensagens Salvas</span>
       </div>
 
       <div
         class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="2.8"></circle>
-          <path
-            d="M19.4 13.6a1.5 1.5 0 0 1 .3 1.7l-.6 1a1.5 1.5 0 0 1-1.6.7l-1.3-.3a7.4 7.4 0 0 1-1.8 1l-.4 1.3a1.5 1.5 0 0 1-1.4 1.1h-1.2a1.5 1.5 0 0 1-1.4-1.1l-.4-1.3a7.4 7.4 0 0 1-1.8-1l-1.3.3a1.5 1.5 0 0 1-1.6-.7l-.6-1a1.5 1.5 0 0 1 .3-1.7l1-.9a7.4 7.4 0 0 1 0-2.1l-1-.9a1.5 1.5 0 0 1-.3-1.7l.6-1a1.5 1.5 0 0 1 1.6-.7l1.3.3a7.4 7.4 0 0 1 1.8-1l.4-1.3A1.5 1.5 0 0 1 11.4 3h1.2a1.5 1.5 0 0 1 1.4 1.1l.4 1.3a7.4 7.4 0 0 1 1.8 1l1.3-.3a1.5 1.5 0 0 1 1.6.7l.6 1a1.5 1.5 0 0 1-.3 1.7l-1 .9a7.4 7.4 0 0 1 0 2.1l1 1z"
-          ></path>
-        </svg>
+        <svg lucideSettings class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Configurações</span>
       </div>
 
-      <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-      <div
-        class="item flex cursor-pointer items-center gap-4.5 px-5.5 py-2.5 text-sm select-none hover:bg-card"
+      <button
+        type="button"
+        class="item flex w-full cursor-pointer items-center gap-4.5 border-0 bg-transparent px-5.5 py-2.5 text-sm text-foreground select-none hover:bg-card"
         (click)="theme.toggle()"
       >
-        <svg
-          class="h-5.25 w-5.25 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"></path>
-        </svg>
+        <svg lucideMoon class="h-5.25 w-5.25 shrink-0" aria-hidden="true"></svg>
         <span class="flex-1 leading-none">Modo Noturno</span>
-        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
         <div
           class="toggle bg-foreground-muted/40"
           [class.on]="theme.isDark()"
           role="switch"
+          tabindex="0"
+          aria-label="Modo noturno"
           [attr.aria-checked]="theme.isDark()"
           (click)="$event.stopPropagation(); theme.toggle()"
+          (keydown.space)="$event.preventDefault(); $event.stopPropagation(); theme.toggle()"
         ></div>
-      </div>
+      </button>
     </div>
 
     <div class="footer mt-auto px-5.5 pt-5 pb-5.5 text-xs leading-relaxed text-foreground-muted">

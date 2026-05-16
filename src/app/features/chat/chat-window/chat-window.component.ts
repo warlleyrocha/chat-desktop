@@ -1,5 +1,5 @@
 import { Component, HostListener, computed, inject, signal } from '@angular/core';
-import { LucideCheck, LucideCheckCheck } from '@lucide/angular';
+import { LucideCheck, LucideCheckCheck, LucideSend } from '@lucide/angular';
 
 import { ChatService } from '../../../core/services/chat.service';
 import { MenuService } from '../../../core/services/menu.service';
@@ -7,7 +7,7 @@ import { MOCK_ACCOUNT } from '../../menu/mocks/account.mock';
 
 @Component({
   selector: 'app-chat-window',
-  imports: [LucideCheck, LucideCheckCheck],
+  imports: [LucideCheck, LucideCheckCheck, LucideSend],
   templateUrl: './chat-window.component.html',
   styleUrl: './chat-window.component.css',
 })
